@@ -16,9 +16,9 @@ import java.util.stream.Collectors;
     Output: List of ImmutableMap.of("id", "5", "title", "Bad Boys")
 */
 public class Kata1 {
-    public static List<Map<Integer, String>> execute() {
+    public static List<Map> execute() {
         List<Movie> movies = DataUtil.getMovies();
-        List<Map<Integer, String>> kataOne;
+        List<Map> kataOne;
         kataOne = movies.stream()
                 .map(getMoviesFunction())
                 .collect(Collectors.toList());
