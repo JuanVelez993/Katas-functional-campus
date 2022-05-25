@@ -18,8 +18,9 @@ import java.util.Map;
 public class Kata5 {
     public static Double execute() {
         List<Movie> movies = DataUtil.getMovies();
-
-        return movies.stream().map(Movie::getRating)
+        Double kataFive=movies.stream().map(Movie::getRating)
                 .reduce(Double::max).get();
+        System.out.println(kataFive);
+        return kataFive;
     }
 }
