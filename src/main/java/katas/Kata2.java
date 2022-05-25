@@ -7,6 +7,8 @@ import util.DataUtil;
 
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /*
     Goal: Chain filter() and map() to collect the ids of videos that have a rating of 5.0
@@ -16,7 +18,13 @@ import java.util.Map;
 public class Kata2 {
     public static List<Integer> execute() {
         List<Movie> movies = DataUtil.getMovies();
+        List<Integer> kataTwo=movies.stream().filter(movie -> movie.getRating()==5.0)
+                .map(movie -> movie.getId())
+                .collect(Collectors.toList());
+        kataTwo.forEach(System.out::println);
 
-        return ImmutableList.of(1, 2, 3);
+        return kataTwo;
     }
+
+
 }
