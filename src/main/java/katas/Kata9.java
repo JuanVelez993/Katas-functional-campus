@@ -25,9 +25,8 @@ public class Kata9 {
         List<Map> kataNine=movieLists
                 .stream()
                 .flatMap(movieList -> movieList.getVideos().stream())
-                .map(movie->ImmutableMap.of("id",movie.getId(),"title", movie.getId(),"time",movie.getInterestingMoments()
+                .map(movie->ImmutableMap.of("id",movie.getId(),"title", movie.getTitle(),"time",movie.getInterestingMoments()
                         .stream().filter(interestingMoment -> interestingMoment.getType().equals("Middle"))
-                        .map(interestingMoment -> interestingMoment.getTime())
                         .map(moment->moment.getTime()).findFirst().get(),"url",movie.getBoxarts()
                         .stream().reduce(getSmallest())
                         .map(boxArt -> boxArt.getUrl()).get()))
